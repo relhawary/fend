@@ -4,9 +4,9 @@ Front End Nanodegree Content & Project Resources
 
 ## Table of Contents
 
-* [Projects](#projects)
-* [Courses](#courses)
-* [Style-Guide](#style-guide)
+-  [Projects](#projects)
+-  [Courses](#courses)
+-  [Style-Guide](#style-guide)
 
 ## Projects
 
@@ -24,14 +24,24 @@ Note that projects that do not include associated starter code are not linked he
 
 The following is a list of the courses associated with the Front End Nanodegree.
 
-* C1 - CSS, Website Layout, Website Components
-* C2 - JavaScript & The DOM
-* C3 - Web API's and Asynchronous Applications
-* C4 - Build Tools and Single Page Web Apps
-* C5 - Capstone
+-  C1 - CSS, Website Layout, Website Components
+-  C2 - JavaScript & The DOM
+-  C3 - Web API's and Asynchronous Applications
+-  C4 - Build Tools and Single Page Web Apps
+-  C5 - Capstone
+
+## Courses
+
+The following is a list of the courses associated with the Front End Nanodegree.
+
+-  C1 - CSS, Website Layout, Website Components
+-  C2 - JavaScript & The DOM
+-  C3 - Web API's and Asynchronous Applications
+-  C4 - Build Tools and Single Page Web Apps
+-  C5 - Capstone
 
 ## Style-Guide
 
 See below for the Udacity Style Guide used thoroughout the Front End Nanodegree.
 
-* [Nanodegree Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/)
+-  [Nanodegree Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/)
