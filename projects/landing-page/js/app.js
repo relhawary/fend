@@ -29,7 +29,7 @@ var navBarUlElement = document.getElementById("navbar__list");
 
 function isVisible(element) {
 	var rectangle = element.getBoundingClientRect();
-	console.log(-rectangle.height);
+	//console.log(-rectangle.height);
 	return rectangle.top <= 0 && -rectangle.height <= rectangle.top;
 }
 
