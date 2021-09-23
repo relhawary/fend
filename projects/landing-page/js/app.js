@@ -30,8 +30,35 @@ var navBarUlElement = document.getElementById("navbar__list");
 function isVisible(element) {
 	var rectangle = element.getBoundingClientRect();
 	//console.log(-rectangle.height);
-	return rectangle.top <= 0 && -rectangle.height <= rectangle.top;
+	return rectangle.top <= 60 && -rectangle.height + 60 <= rectangle.top;
 }
+/**
+ * End Helper Functions
+ * Begin Main Functions
+ *
+ */
+
+// build the nav
+
+function buildNavMenu(sections) {
+	if (sections.length > 0) {
+		for (let i = 1; i <= sections.length; i++) {
+			let menuListItem = document.createElement("li");
+			let menuAnchor = document.createElement("a");
+			let link = "#section" + i;
+			menuAnchor.setAttribute("href", link);
+			menuAnchor.textContent = "SECTION " + i;
+			menuAnchor.setAttribute("class", "menu__link");
+			menuAnchor.setAttribute("id", "anchor" + i);
+			menuListItem.appendChild(menuAnchor);
+			navBarUlElement.appendChild(menuListItem);
+			//	console.log("im working bitch");
+			// change this later to use innerHTML with concatination
+		}
+	}
+}
+
+// Add class 'active' to section when near top of viewport
 
 function scrollHandler() {
 	for (let i = 1; i <= allSectionElements.length; i++) {
@@ -51,48 +78,23 @@ function scrollHandler() {
 }
 
 /**
- * End Helper Functions
- * Begin Main Functions
- *
- */
-
-// build the nav
-
-function buildNavMenu(sections) {
-	if (sections.length > 0) {
-		for (let i = 1; i <= sections.length; i++) {
-			let menuListItem = document.createElement("li");
-			let menuAnchor = document.createElement("a");
-			let link = "#section" + i;
-			menuAnchor.setAttribute("href", link);
-			menuAnchor.textContent = "SECTION " + i;
-			menuAnchor.setAttribute("class", "menu__link");
-			menuListItem.appendChild(menuAnchor);
-			navBarUlElement.appendChild(menuListItem);
-			//	console.log("im working bitch");
-			// change this later to use innerHTML with concatination
-		}
-	}
-}
-
-document.body.onload = buildNavMenu(allSectionElements);
-
-// Add class 'active' to section when near top of viewport
-
-document.addEventListener("scroll", function (e) {
-	scrollHandler();
-});
-
-// Scroll to anchor ID using scrollTO event
-
-/**
  * End Main Functions
  * Begin Events
  *
  */
 
 // Build menu
+document.body.onload = buildNavMenu(allSectionElements);
 
 // Scroll to section on link click
+for (let j = 1; j < allSectionElements.length; j++) {
+	document.getElementById("anchor" + j).addEventListener("click", function (e) {
+		e.preventDefault();
+		document.getElementById("section" + j).scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+	});
+}
 
 // Set sections as active
+document.addEventListener("scroll", function (e) {
+	scrollHandler();
+});
