@@ -27,6 +27,29 @@ var navBarUlElement = document.getElementById("navbar__list");
  *
  */
 
+function isVisible(element) {
+	var rectangle = element.getBoundingClientRect();
+	console.log(-rectangle.height);
+	return rectangle.top <= 0 && -rectangle.height <= rectangle.top;
+}
+
+function scrollHandler() {
+	for (let i = 1; i <= allSectionElements.length; i++) {
+		//looping over section with each scroll
+		let ID = "section" + i;
+		let element = document.getElementById(ID);
+		let visible = isVisible(element); //output from isVIsible function will determine whether current section is top-most section or not
+		if (visible == true) {
+			element.classList.add("your-active-class");
+		} else {
+			element.classList.remove("your-active-class");
+			//this will make sure that all the OTHER non-active sections dont have the active class with every loop
+		}
+		//for debugging purposes
+		//console.log(i, ID, visible, element.getBoundingClientRect());
+	}
+}
+
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -55,34 +78,6 @@ function buildNavMenu(sections) {
 document.body.onload = buildNavMenu(allSectionElements);
 
 // Add class 'active' to section when near top of viewport
-
-function checkSectionInView(element) {
-	var rectangle = element.getBoundingClientRect();
-	console.log(-rectangle.height);
-	return (
-		// rectangle.top >= 0 &&
-		// rectangle.left >= 0 &&
-		// rectangle.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-		// rectangle.right <= (window.innerWidth || document.documentElement.clientWidth)
-		rectangle.top <= 0 && -rectangle.height <= rectangle.top
-	);
-}
-
-function scrollHandler() {
-	for (let i = 1; i <= allSectionElements.length; i++) {
-		let ID = "section" + i;
-		let idBefore = "section" + (i - 1);
-		let element = document.getElementById(ID);
-		let visible = checkSectionInView(element);
-		if (visible == true) {
-			//document.getElementById(idBefore).classList.remove("acive");
-			element.classList.add("your-active-class");
-		} else {
-			element.classList.remove("your-active-class");
-		}
-		console.log(i, ID, visible, element.getBoundingClientRect());
-	}
-}
 
 document.addEventListener("scroll", function (e) {
 	scrollHandler();
