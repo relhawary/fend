@@ -17,8 +17,8 @@
  * Define Global Variables
  *
  */
-let allSectionElements = document.getElementsByTagName("section");
-let navBarUlElement = document.getElementById("navbar__list");
+var allSectionElements = document.getElementsByTagName("section");
+var navBarUlElement = document.getElementById("navbar__list");
 //var theSectionsArray=[document.getElementById('section1'),document.getElementById('section2'),document.getElementById('section3'),document.getElementById
 //('section4')]
 /**
@@ -68,10 +68,8 @@ function scrollHandler() {
 		let visible = isVisible(element); //output from isVIsible function will determine whether current section is top-most section or not
 		if (visible == true) {
 			element.classList.add("your-active-class");
-			document.getElementById("anchor" + i).classList.add("menu__selected");
 		} else {
 			element.classList.remove("your-active-class");
-			document.getElementById("anchor" + i).classList.remove("menu__selected");
 			//this will make sure that all the OTHER non-active sections dont have the active class with every loop
 		}
 		//for debugging purposes
